@@ -1,0 +1,573 @@
+{
+  "site": {
+    "name": "boox tv",
+    "whatsappNumber": "5215645072073",
+    "whatsappLink": "https://www.whatsapp.com/channel/0029VaBA0rVK5cDDS0222H1v",
+    "defaultMessage": "Hola, me interesa",
+    "footerDesc": "El mejor entretenimiento en un solo lugar. Disfruta de series, películas y eventos deportivos sin interrupciones."
+  },
+  "navigation": {
+    "links": [
+      {
+        "name": "Inicio",
+        "href": "#inicio"
+      },
+      {
+        "name": "Contenido",
+        "href": "#contenido"
+      },
+      {
+        "name": "Planes",
+        "href": "#planes"
+      },
+      {
+        "name": "FAQ",
+        "href": "#faq"
+      }
+    ],
+    "cta": "Prueba Gratis"
+  },
+  "hero": {
+    "badge": "Disponibilidad Inmediata 2026",
+    "titulo": "boox",
+    "resaltado": "Entretenimiento digital",
+    "descripcion": "Más de 2,900 canales de TV, 39,000 películas y 19,000 series con actualizaciones diarias. Deportes, estrenos y conexión en 3 dispositivos.",
+    "ctaPrincipal": "Ver planes desde $139",
+    "ctaSecundario": "Canal de WhatsApp"
+  },
+  "planes": [
+    {
+      "nombre": "Sports",
+      "logo": "/logos/boox_sports_logo.png",
+      "ideal": "Partidos esenciales, TV en vivo y entretenimiento diario.",
+      "precio": 139,
+      "features": [
+        {
+          "text": "+1,900 Canales de TV en vivo",
+          "highlight": false
+        },
+        {
+          "text": "+32,000 Películas (Incluye Estrenos)",
+          "highlight": false
+        },
+        {
+          "text": "+4,000 Series (Actualización periódica)",
+          "highlight": false
+        }
+      ],
+      "ratings": {
+        "act": 4,
+        "cal": 4,
+        "estTV": 4
+      },
+      "destacado": false
+    },
+    {
+      "nombre": "MÁX",
+      "logo": "/logos/boox_tv_max_logo.png",
+      "ideal": "Para quien ve sobre todo películas y series.",
+      "precio": 199,
+      "features": [
+        {
+          "text": "+1,900 Canales de TV en vivo",
+          "highlight": false
+        },
+        {
+          "text": "+40,000 Películas (Actualización diaria)",
+          "highlight": true
+        },
+        {
+          "text": "+20,000 Series (Actualización diaria)",
+          "highlight": true
+        }
+      ],
+      "ratings": {
+        "act": 5,
+        "cal": 4,
+        "estTV": 4
+      },
+      "destacado": false
+    },
+    {
+      "nombre": "BALANCE",
+      "logo": "/logos/boox_balance_logo.png",
+      "ideal": "La combinación perfecta entre deportes, TV en vivo, películas y series.",
+      "precio": 249,
+      "features": [
+        {
+          "text": "+2,100 Canales de TV en vivo FHD",
+          "highlight": true
+        },
+        {
+          "text": "+29,000 Películas (Actualización diaria)",
+          "highlight": true
+        },
+        {
+          "text": "+6,000 Series (Actualización diaria)",
+          "highlight": true
+        }
+      ],
+      "ratings": {
+        "act": 5,
+        "cal": 5,
+        "estTV": 5
+      },
+      "destacado": true
+    }
+  ],
+  "pricingLabels": {
+    "mobileScroll": "← Desliza para comparar planes →",
+    "popularBadge": "MÁS POPULAR",
+    "devices": "3 Disp.",
+    "period": "MENSUAL",
+    "ctaTry": "SOLICITAR PRUEBA GRATIS",
+    "cta": "ADQUIRIR AHORA",
+    "ratingNames": {
+      "act": "Contenido",
+      "cal": "Imagen",
+      "estTV": "Estabilidad"
+    },
+    "footerTitles": {
+      "sports": "Eventos Deportivos",
+      "platforms": "Contenido por plataforma",
+      "both": "Todo el contenido"
+    }
+  },
+  "beneficios": [
+    {
+      "icono": "📺",
+      "texto": "TV EN VIVO",
+      "info": "Más de 2,900 canales internacionales, nacionales y locales en alta definición (HD/4K)."
+    },
+    {
+      "icono": "🍿",
+      "texto": "SERIES COMPLETAS",
+      "info": "Más de 19,000 series de todas las plataformas, desde clásicas hasta los últimos lanzamientos."
+    },
+    {
+      "icono": "⚽",
+      "texto": "DEPORTES Y EVENTOS",
+      "info": "Acceso a MLB, LaLiga, Champions League, NFL, F1 y MLS."
+    },
+    {
+      "icono": "🎬",
+      "texto": "ESTRENOS DE PELÍCULAS",
+      "info": "Actualizaciones diarias de los últimos estrenos de cine y plataformas (39,000+ títulos)."
+    },
+    {
+      "icono": "🔞",
+      "texto": "CONTENIDO +18 (Opcional)",
+      "extraClass": "text-red-500",
+      "info": "Sección protegida con contraseña para contenido de adultos."
+    },
+    {
+      "icono": "🛠️",
+      "texto": "SOPORTE TÉCNICO",
+      "info": "Atención personalizada vía WhatsApp para dudas o peticiones de contenido."
+    }
+  ],
+  "downloadSection": {
+    "icono": "📥",
+    "texto": "Guía de Instalación y descargas"
+  },
+  "guiaInstalacion": {
+    "titulo": "Guía de instalación",
+    "dispositivos": [
+      {
+        "id": "roku",
+        "nombre": "Roku",
+        "intro": "En Roku se usa nuestra app Boox TV. No necesitas pagar ninguna app externa.",
+        "apps": [
+          {
+            "name": "Boox TV",
+            "badge": "Recomendada",
+            "desc": "Nuestra app oficial para Roku. Sin costo.",
+            "instalar": [
+              "Presiona el botón <b>Inicio</b> (la casita) del control.",
+              "Entra a <b>Buscar</b>. Según tu modelo puede decir <b>Tienda de streaming</b> o <b>Canales de transmisión → Buscar canales</b>.",
+              "Escribe exactamente <b>Boox TV</b> y selecciona la app.",
+              "Elige <b>Agregar app</b> (o Agregar canal) y espera a que termine.",
+              "Regresa a Inicio y abre Boox TV."
+            ],
+            "datos": [
+              "Abre Boox TV.",
+              "Escribe el <b>usuario</b> y la <b>contraseña</b> que te enviamos, tal cual: respeta mayúsculas y minúsculas.",
+              "Entra y elige TV en vivo, Películas o Series."
+            ],
+            "nota": "Si Boox TV no aparece en la búsqueda, mándanos el modelo de tu Roku o una foto de los resultados."
+          }
+        ]
+      },
+      {
+        "id": "android-box",
+        "nombre": "Android TV / TV Box / Google TV",
+        "intro": "Incluye pantallas con Android TV o Google TV (Sony, TCL, Hisense con Google TV) y cajas como Xiaomi Mi Box o Chromecast con Google TV.",
+        "apps": [
+          {
+            "name": "Boox TV",
+            "badge": "Recomendada",
+            "desc": "Nuestra app oficial. Sin costo.",
+            "tienda": {
+              "label": "Ver en Google Play",
+              "url": "https://play.google.com/store/apps/details?id=com.rcmx.booads"
+            },
+            "instalar": [
+              "Abre la tienda <b>Google Play</b> de tu equipo.",
+              "Busca <b>Boox TV</b> y revisa que el ícono sea el de BooxTV.",
+              "Presiona <b>Instalar</b> y luego <b>Abrir</b>."
+            ],
+            "datos": [
+              "Abre Boox TV.",
+              "Escribe el <b>usuario</b> y la <b>contraseña</b> que te enviamos, tal cual: respeta mayúsculas y minúsculas.",
+              "Entra y elige TV en vivo, Películas o Series."
+            ]
+          },
+          {
+            "name": "Next+",
+            "badge": "Alternativa",
+            "desc": "Úsala solo si Boox TV no aparece en tu tienda. Sin costo.",
+            "tienda": {
+              "label": "Ver en Google Play",
+              "url": "https://play.google.com/store/apps/details?id=com.code.next"
+            },
+            "instalar": [
+              "Abre Google Play y busca <b>Next+</b>.",
+              "Revisa el nombre y el ícono antes de instalar.",
+              "Presiona <b>Instalar</b> y luego <b>Abrir</b>."
+            ],
+            "datos": [
+              "Abre Next+ y entra a agregar una lista.",
+              "Llena los campos: <b>Nombre de la lista:</b> BooxTV · <b>Nombre de usuario</b> y <b>Contraseña:</b> los que te enviamos · <b>Servidor:</b> el número de servidor que viene en tu mensaje.",
+              "Guarda y espera a que cargue la lista. La primera vez puede tardar unos segundos."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fire-tv",
+        "nombre": "Fire TV / Fire Stick",
+        "intro": "En Fire TV la app Boox TV se instala con la app Downloader y el código 7785043.",
+        "apps": [
+          {
+            "name": "Boox TV",
+            "badge": "Recomendada",
+            "desc": "Se instala con Downloader. Sin costo.",
+            "video": {
+              "label": "Ver video de la instalación",
+              "url": "https://youtu.be/FlucS9ZUn8M"
+            },
+            "instalar": [
+              "En la pantalla de inicio entra a <b>Buscar</b> (la lupa), escribe <b>Downloader</b> e instala la app de ícono naranja.",
+              "Activa la instalación de apps: <b>Configuración → Mi Fire TV → Opciones para desarrolladores → Instalar apps desconocidas</b> y enciende <b>Downloader</b>. Si no ves Opciones para desarrolladores, entra a <b>Mi Fire TV → Acerca de</b> y presiona 7 veces el nombre de tu dispositivo.",
+              "Abre Downloader, escribe el código <b>7785043</b> en el campo de dirección y presiona <b>Ir</b>.",
+              "Cuando termine la descarga, presiona <b>Instalar</b> y luego <b>Abrir</b>. Al abrir la app, pulsa <b>Continuar</b>.",
+              "Opcional: cuando Downloader te lo ofrezca, elige <b>Eliminar</b> para borrar el archivo de instalación y liberar espacio."
+            ],
+            "datos": [
+              "Abre Boox TV.",
+              "Escribe el <b>usuario</b> y la <b>contraseña</b> que te enviamos, tal cual: respeta mayúsculas y minúsculas.",
+              "Entra y elige TV en vivo, Películas o Series."
+            ],
+            "nota": "En el video aparece un código anterior: usa siempre 7785043. Si sale un error, mándanos una foto de la pantalla."
+          }
+        ]
+      },
+      {
+        "id": "samsung-lg",
+        "nombre": "Smart TV Samsung / LG",
+        "intro": "Samsung y LG no tienen nuestra app, así que se usa un reproductor de la tienda de tu TV. Cuál aparece depende del modelo.",
+        "apps": [
+          {
+            "name": "IBO Player Pro",
+            "badge": "Recomendada",
+            "desc": "La más estable en Samsung y LG.",
+            "licencia": "Licencia de IBO Player: $60 anual. No se cobra en la prueba gratis; al contratar te pedimos la foto con tu MAC para activarla.",
+            "instalar": [
+              "Abre la tienda de tu TV: <b>Apps</b> en Samsung o <b>LG Content Store</b> en LG.",
+              "Busca <b>IBO Player Pro</b> y compara el nombre y el ícono antes de instalar.",
+              "Instálala y ábrela."
+            ],
+            "datos": [
+              "Abre la app. En la pantalla de inicio verás tu <b>MAC</b> y tu <b>Device Key</b>; tómale foto, la necesitarás al contratar.",
+              "Abajo, elige <b>cambiar servidor</b>.",
+              "Borra las listas que aparezcan con el ícono del bote 🗑️ y elige <b>agregar lista</b>.",
+              "Llena en este orden: <b>Playlist Name:</b> Boox · <b>Playlist URL:</b> la de tu plan · <b>Username:</b> tu usuario · <b>Password:</b> tu contraseña.",
+              "Presiona <b>SAVE</b>. ¡Listo!"
+            ],
+            "imagenesPlan": {
+              "Sports": "/guias/ibo-sports.webp",
+              "Max": "/guias/ibo-max.webp",
+              "Balance": "/guias/ibo-balance.webp"
+            }
+          },
+          {
+            "name": "IPTV Smarters Player",
+            "badge": "Alternativa",
+            "desc": "Úsala si IBO Player Pro no aparece en tu tienda.",
+            "licencia": "Licencia de IPTV Smarters Player: $70 anual. No se cobra en la prueba gratis; al contratar te pedimos la foto con tu MAC para activarla.",
+            "instalar": [
+              "Abre la tienda de tu TV: <b>Apps</b> en Samsung o <b>LG Content Store</b> en LG.",
+              "Busca <b>Smarters Player</b> y revisa que el ícono coincida.",
+              "Instálala y ábrela."
+            ],
+            "datos": [
+              "En el menú principal elige <b>Listas</b>.",
+              "Borra las listas que aparezcan con el ícono del bote 🗑️ y elige <b>Agregar lista de reproducción</b>.",
+              "Llena: <b>Nombre:</b> Boox TV · <b>Nombre de usuario</b> · <b>Contraseña</b> · <b>URL:</b> la de tu plan.",
+              "Presiona <b>Agregar</b>. ¡Listo!"
+            ],
+            "imagenesPlan": {
+              "Sports": "/guias/smarters-player-sports.webp",
+              "Max": "/guias/smarters-player-max.webp",
+              "Balance": "/guias/smarters-player-balance.webp"
+            }
+          },
+          {
+            "name": "Smarters Pro",
+            "badge": "Gratis",
+            "desc": "Nueva en la tienda de Samsung y LG. Sin costo de licencia.",
+            "instalar": [
+              "Abre la tienda de tu TV: <b>Apps</b> en Samsung o <b>LG Content Store</b> en LG.",
+              "Busca <b>Smarters Pro Original</b> en Samsung o <b>Smarters Pro</b> en LG. Compara el ícono azul con la imagen.",
+              "Presiona <b>Instalar</b> y ábrela."
+            ],
+            "imagenes": [
+              {
+                "src": "/guias/smarters-pro-samsung.webp",
+                "alt": "Smarters Pro Original en la tienda de Samsung"
+              },
+              {
+                "src": "/guias/smarters-pro-lg.webp",
+                "alt": "Smarters Pro en la tienda de LG"
+              }
+            ],
+            "datos": [
+              "Abre Smarters Pro y elige <b>Añadir playlist</b> (Add playlist).",
+              "Llena los campos: <b>Nombre:</b> BooxTV · <b>Usuario</b> · <b>Contraseña</b> · <b>URL:</b> la de tu plan, que viene en tu mensaje.",
+              "Guarda y espera a que cargue tu contenido."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "vidaa",
+        "nombre": "Hisense VIDAA",
+        "intro": "Las pantallas Hisense con sistema VIDAA usan IBOSOL o IBO Player Pro desde su tienda de apps.",
+        "apps": [
+          {
+            "name": "IBOSOL",
+            "badge": "Recomendada",
+            "desc": "Disponible en la tienda de VIDAA.",
+            "licencia": "Licencia de IBOSOL / IBO Player: $60 anual. No se cobra en la prueba gratis; al contratar te pedimos la foto con tu MAC para activarla.",
+            "instalar": [
+              "Presiona el botón de <b>Inicio</b> y abre la <b>tienda de aplicaciones</b> (App Store de VIDAA).",
+              "Busca <b>IBOSOL</b> y compara el nombre y el ícono.",
+              "Instálala y ábrela."
+            ],
+            "datos": [
+              "Abre la app. En la pantalla de inicio verás tu <b>MAC</b> y tu <b>Device Key</b>; tómale foto, la necesitarás al contratar.",
+              "Abajo, elige <b>cambiar servidor</b>.",
+              "Borra las listas que aparezcan con el ícono del bote 🗑️ y elige <b>agregar lista</b>.",
+              "Llena en este orden: <b>Playlist Name:</b> Boox · <b>Playlist URL:</b> la de tu plan · <b>Username:</b> tu usuario · <b>Password:</b> tu contraseña.",
+              "Presiona <b>SAVE</b>. ¡Listo!"
+            ],
+            "imagenesPlan": {
+              "Sports": "/guias/ibo-sports.webp",
+              "Max": "/guias/ibo-max.webp",
+              "Balance": "/guias/ibo-balance.webp"
+            },
+            "nota": "IBOSOL se llena igual que IBO Player: las imágenes de la guía sirven para las dos apps."
+          },
+          {
+            "name": "IBO Player Pro",
+            "badge": "Alternativa",
+            "desc": "Si no encuentras IBOSOL.",
+            "licencia": "Licencia de IBO Player: $60 anual. No se cobra en la prueba gratis; al contratar te pedimos la foto con tu MAC para activarla.",
+            "instalar": [
+              "Abre la tienda de aplicaciones de tu Hisense.",
+              "Busca <b>IBO Player Pro</b> y revisa el ícono.",
+              "Instálala y ábrela."
+            ],
+            "datos": [
+              "Abre la app. En la pantalla de inicio verás tu <b>MAC</b> y tu <b>Device Key</b>; tómale foto, la necesitarás al contratar.",
+              "Abajo, elige <b>cambiar servidor</b>.",
+              "Borra las listas que aparezcan con el ícono del bote 🗑️ y elige <b>agregar lista</b>.",
+              "Llena en este orden: <b>Playlist Name:</b> Boox · <b>Playlist URL:</b> la de tu plan · <b>Username:</b> tu usuario · <b>Password:</b> tu contraseña.",
+              "Presiona <b>SAVE</b>. ¡Listo!"
+            ],
+            "imagenesPlan": {
+              "Sports": "/guias/ibo-sports.webp",
+              "Max": "/guias/ibo-max.webp",
+              "Balance": "/guias/ibo-balance.webp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "android-movil",
+        "nombre": "Celular o tablet Android",
+        "intro": "Instala nuestra app desde Google Play. Es gratis y funciona en celulares y tablets.",
+        "apps": [
+          {
+            "name": "Boox TV",
+            "badge": "Recomendada",
+            "desc": "Nuestra app oficial. Sin costo.",
+            "tienda": {
+              "label": "Descargar en Google Play",
+              "url": "https://play.google.com/store/apps/details?id=com.rcmx.booads"
+            },
+            "instalar": [
+              "Abre el enlace de Google Play o busca <b>Boox TV</b>.",
+              "Presiona <b>Instalar</b> y luego <b>Abrir</b>."
+            ],
+            "datos": [
+              "Abre Boox TV.",
+              "Escribe el <b>usuario</b> y la <b>contraseña</b> que te enviamos, tal cual: respeta mayúsculas y minúsculas.",
+              "Entra y elige TV en vivo, Películas o Series."
+            ]
+          },
+          {
+            "name": "Next+",
+            "badge": "Alternativa",
+            "desc": "Solo si Boox TV no se instala en tu celular. Sin costo.",
+            "tienda": {
+              "label": "Descargar en Google Play",
+              "url": "https://play.google.com/store/apps/details?id=com.code.next"
+            },
+            "instalar": [
+              "Abre el enlace de Google Play o busca <b>Next+</b>.",
+              "Presiona <b>Instalar</b> y luego <b>Abrir</b>."
+            ],
+            "datos": [
+              "Abre Next+ y entra a agregar una lista.",
+              "Llena los campos: <b>Nombre de la lista:</b> BooxTV · <b>Nombre de usuario</b> y <b>Contraseña:</b> los que te enviamos · <b>Servidor:</b> el número de servidor que viene en tu mensaje.",
+              "Guarda y espera a que cargue la lista. La primera vez puede tardar unos segundos."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "iphone",
+        "nombre": "iPhone / iPad",
+        "intro": "En iPhone y iPad se usa Var Player, gratis en la App Store de México.",
+        "apps": [
+          {
+            "name": "Var Player",
+            "badge": "Recomendada",
+            "desc": "Para iPhone y iPad. Sin costo.",
+            "tienda": {
+              "label": "Descargar en App Store",
+              "url": "https://apps.apple.com/mx/app/var-player-unlock-your-world/id6477530321"
+            },
+            "instalar": [
+              "Abre el enlace de la App Store o busca <b>Var Player</b>.",
+              "Revisa el nombre y el ícono, toca <b>Obtener</b> y luego <b>Abrir</b>."
+            ],
+            "datos": [
+              "Abre Var Player y toca <b>Code</b>.",
+              "Escribe el código de servidor que viene en tu mensaje.",
+              "Cuando la app lo pida, escríbelo otra vez y después tu <b>usuario</b> y <b>contraseña</b>.",
+              "Listo: ya puedes ver TV en vivo, películas y series."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pc",
+        "nombre": "Computadora",
+        "intro": "Nuestra app para computadoras con Windows. No funciona en Mac.",
+        "apps": [
+          {
+            "name": "App BooxTV para PC",
+            "badge": "Recomendada",
+            "desc": "Solo para Windows. Sin costo.",
+            "tienda": {
+              "label": "Descargar la app",
+              "url": "https://drive.google.com/file/d/1hiH8gLE8jjvVnkvGnvCsdx3MLBZpHUcW/view?usp=sharing"
+            },
+            "instalar": [
+              "Abre el enlace y descarga el archivo de instalación.",
+              "Abre el archivo descargado. Si Windows muestra el aviso <b>«Windows protegió su PC»</b>, elige <b>Más información → Ejecutar de todas formas</b>.",
+              "Sigue el asistente de instalación y abre la app cuando termine."
+            ],
+            "datos": [
+              "En la pantalla de acceso llena: <b>Nombre:</b> Boox · <b>Playlist URL:</b> la dirección que te enviamos · <b>Usuario</b> y <b>Contraseña</b>.",
+              "Guarda y abre la lista Boox."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "movieSection": {
+    "titulo": "Todo el contenido en un solo lugar",
+    "categoria1": "Películas de estreno y más vistas",
+    "categoria2": "Series más populares y aclamadas",
+    "categoria3": "Contenido para todos los géneros"
+  },
+  "providerSection": {
+    "titulo": "Canales y Plataformas",
+    "resaltado": "Incluidas",
+    "descripcion": "Disfruta de tus servicios favoritos en una sola cuenta de Boox TV."
+  },
+  "faqConfig": {
+    "titulo": "Preguntas",
+    "resaltado": "Frecuentes",
+    "descripcion": "Resolvemos tus dudas al instante",
+    "btnVerMas": "Ver todas las preguntas"
+  },
+  "faqs": [
+    {
+      "pregunta": "¿Qué es Boox TV?",
+      "respuesta": "Es un servicio de entretenimiento por internet que te da acceso a canales en vivo, películas, series y deportes desde cualquier dispositivo."
+    },
+    {
+      "pregunta": "¿Qué incluye el servicio?",
+      "respuesta": "Miles de canales en vivo, películas, series, eventos deportivos (como Liga MX, Champions y F1) y contenido actualizado constantemente."
+    },
+    {
+      "pregunta": "¿Por qué elegir Boox TV?",
+      "respuesta": "Porque tienes acceso a más contenido que en cualquier plataforma tradicional, pagas mucho menos y puedes probar la estabilidad antes de comprar. Así de simple 😉"
+    },
+    {
+      "pregunta": "¿Tienen prueba gratis y cómo la obtengo?",
+      "respuesta": "¡Sí! Te otorgamos una prueba de 2 horas. Solo da clic en el botón <b>PRUEBA GRATIS</b> en esta página y serás redirigido a nuestro WhatsApp, donde nuestro sistema te guiará para instalar la app y recibir tus accesos en menos de 3 minutos."
+    },
+    {
+      "pregunta": "¿En qué dispositivos funciona?",
+      "respuesta": "Funciona en Smart TV (Samsung, LG, Android TV), celulares, tablets, TV Box, Fire Stick, Roku y computadoras."
+    },
+    {
+      "pregunta": "¿Qué aplicación necesito instalar?",
+      "respuesta": "Depende de tu equipo y te guiamos paso a paso. Todas las apps están en tiendas oficiales.<br><br><b>Roku, Android TV, TV Box, Fire TV y celular Android:</b> nuestra app Boox TV, sin costo.<br><b>iPhone y iPad:</b> Var Player, sin costo.<br><b>Smart TV Samsung o LG:</b> IBO Player Pro ($60 anual), IPTV Smarters Player ($70 anual) o Smarters Pro, gratis.<br><b>Hisense VIDAA:</b> IBOSOL o IBO Player Pro.<br><b>Computadora:</b> nuestra app para PC.<br><br>Las licencias de IBO y Smarters no se cobran en la prueba gratis. En la sección <a href='#dispositivos'>Dispositivos</a> encuentras la guía de cada equipo."
+    },
+    {
+      "pregunta": "¿Qué pasa si no sé qué tipo de TV tengo?",
+      "respuesta": "No te preocupes, puedes enviarnos una foto de tu pantalla o control remoto por WhatsApp y nosotros te ayudamos a identificarlo de inmediato."
+    },
+    {
+      "pregunta": "¿Cuánto cuesta y cómo puedo pagar?",
+      "respuesta": "Tenemos planes desde $139 MXN al mes. Puedes realizar tu pago de forma segura mediante transferencia bancaria o depósitos en OXXO."
+    },
+    {
+      "pregunta": "¿El pago es mensual o forzoso?",
+      "respuesta": "Es un pago mensual sin contratos ni plazos forzosos. Puedes dejar de pagar cuando quieras sin ninguna penalización."
+    },
+    {
+      "pregunta": "¿Cuándo y dónde recibo mi acceso?",
+      "respuesta": "Todo lo recibirás por nuestro WhatsApp. Una vez que realices tu pago, envíanos el comprobante por ese mismo medio y activaremos tu cuenta en menos de 3 minutos. Conservarás tus datos de prueba si ya los tenías."
+    },
+    {
+      "pregunta": "¿Puedo usarlo en varios dispositivos al mismo tiempo?",
+      "respuesta": "Sí, el servicio te permite conectar hasta 3 dispositivos simultáneamente con la misma cuenta."
+    },
+    {
+      "pregunta": "¿Necesito internet muy rápido?",
+      "respuesta": "Recomendamos un mínimo de 20 Mbps para una experiencia fluida en HD y 4K. Si tienes buen internet, el servicio no debería trabarse ni cortarse."
+    },
+    {
+      "pregunta": "¿Cómo busco un canal, película o serie?",
+      "respuesta": "1. Entra a la categoría (Live TV, Movies o Series).<br>2. Clic en 'ALL' o 'TODO'.<br>3. Clic en el icono de la Lupa 🔎.<br>4. Escribe el nombre. <b>Tip:</b> Si no aparece, búscala en INGLÉS para obtener más resultados."
+    }
+  ]
+}

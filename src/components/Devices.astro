@@ -1,0 +1,197 @@
+---
+// src/components/Devices.astro — dispositivos compatibles + guía de instalación (datos de contenido.json)
+import contenido from '../data/contenido.json';
+const { guiaInstalacion, site } = contenido;
+
+const icon: Record<string, string> = {
+  'samsung-lg': '<rect x="2.5" y="4" width="19" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/>',
+  'android-box': '<rect x="3" y="13" width="18" height="6" rx="1.5"/><path d="M7 16h.01M10 16h4M8 9l-2-3M16 9l2-3M7 13a5 5 0 0110 0"/>',
+  'fire-tv': '<rect x="9" y="2.5" width="6" height="19" rx="3"/><path d="M12 6.5v.01M12 10v3"/>',
+  'roku': '<rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10 7h4M10 11h4M12 15.5v.01"/>',
+  'vidaa': '<rect x="2.5" y="4" width="19" height="13" rx="1.5"/><path d="M8 21h8M12 17v4M9 8l3 5 3-5"/>',
+  'android-movil': '<rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18.5h2"/>',
+  'iphone': '<rect x="6.5" y="2.5" width="11" height="19" rx="3"/><path d="M10.5 5h3"/>',
+  'pc': '<rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M2 20h20M9 16l-1 4M15 16l1 4"/>',
+};
+---
+
+<section id="dispositivos" class="scroll-mt-20 border-y border-line bg-night/60 py-16 md:py-24">
+  <div class="mx-auto max-w-7xl px-5 md:px-10">
+    <div class="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16 lg:items-center">
+      <div>
+        <h2 class="text-3xl md:text-[2.75rem] font-extrabold tracking-[-0.03em] leading-tight">Míralo en la pantalla que ya tienes</h2>
+        <p class="mt-4 text-lg leading-relaxed text-mist">Funciona en Smart TV, TV Box, Fire TV, Roku, celulares y computadoras. Elige tu equipo y sigue la guía paso a paso: qué app instalar y dónde escribir tus datos.</p>
+        <div class="mt-8 rounded-2xl bg-white/[0.04] p-5 ring-1 ring-line">
+          <p class="font-semibold">¿No sabes qué equipo tienes?</p>
+          <ul class="mt-3 space-y-2 text-mist">
+            <li class="flex gap-2.5"><span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-boox"></span><span>Si en el menú ves «Google TV» o «Android TV», elige <button type="button" class="device-open font-semibold text-white underline underline-offset-4" data-id="android-box">Android</button>.</span></li>
+            <li class="flex gap-2.5"><span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-boox"></span><span>Si tu control trae el botón de Roku, elige <button type="button" class="device-open font-semibold text-white underline underline-offset-4" data-id="roku">Roku</button>.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <ul class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {guiaInstalacion.dispositivos.map((dev) => (
+          <li>
+            <button class="device-open group flex h-full w-full flex-col items-start gap-3 rounded-2xl bg-white/[0.04] p-4 md:p-5 text-left ring-1 ring-line transition-colors hover:bg-white/[0.08] hover:ring-white/25" data-id={dev.id}>
+              <svg viewBox="0 0 24 24" class="h-8 w-8 text-[#7aa2ff]" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={icon[dev.id] ?? icon['samsung-lg']} />
+              <span class="font-semibold leading-snug">{dev.nombre}</span>
+              <span class="mt-auto text-sm text-mist group-hover:text-white transition-colors">Ver cómo instalar</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Guía de instalación -->
+<div id="guide-modal" class="fixed inset-0 z-[100] hidden items-end sm:items-center justify-center bg-black/75 backdrop-blur-sm p-0 sm:p-4" role="dialog" aria-modal="true" aria-labelledby="guide-title">
+  <div class="guide-panel w-full sm:max-w-xl max-h-[90vh] overflow-hidden rounded-t-3xl sm:rounded-3xl bg-deep ring-1 ring-line shadow-2xl flex flex-col">
+    <div class="flex items-center justify-between gap-4 border-b border-line px-6 py-5">
+      <div class="flex items-center gap-3 min-w-0">
+        <button id="guide-back" class="hidden -ml-2 rounded-lg p-2 text-mist hover:text-white" aria-label="Volver">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h3 id="guide-title" class="truncate text-lg font-bold">{guiaInstalacion.titulo}</h3>
+      </div>
+      <button id="guide-close" class="-mr-2 rounded-lg p-2 text-mist hover:text-white" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div id="guide-body" class="overflow-y-auto px-6 py-6"></div>
+  </div>
+</div>
+
+<script define:vars={{ guiaInstalacion, canal: site.whatsappLink }}>
+  const initGuide = () => {
+    const modal = document.getElementById('guide-modal');
+    const body = document.getElementById('guide-body');
+    const title = document.getElementById('guide-title');
+    const back = document.getElementById('guide-back');
+    const close = document.getElementById('guide-close');
+    if (!modal || !body) return;
+    let lastFocus = null;
+    let currentDevice = null;
+
+    const open = () => {
+      lastFocus = document.activeElement;
+      modal.classList.replace('hidden', 'flex');
+      document.body.style.overflow = 'hidden';
+      close.focus();
+    };
+    const shut = () => {
+      modal.classList.replace('flex', 'hidden');
+      document.body.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
+    };
+
+    const mist = 'text-[#a5acc4]';
+    const badge = (t) => t === 'Recomendada'
+      ? `<span class="rounded-full bg-[#eab308] px-2 py-0.5 text-[11px] font-bold text-black">${t}</span>`
+      : t === 'Gratis'
+      ? `<span class="rounded-full bg-emerald-400/90 px-2 py-0.5 text-[11px] font-bold text-black">${t}</span>`
+      : `<span class="rounded-full px-2 py-0.5 text-[11px] font-semibold ring-1 ring-white/25 ${mist}">${t}</span>`;
+    const list = (items) => `<ol class="guide-list mt-3 space-y-3">${items.map((t, i) => `
+      <li class="flex gap-3"><span class="mt-0.5 grid h-6 w-6 flex-none place-items-center rounded-full bg-[#2563eb]/25 text-xs font-bold text-[#a9c2ff]">${i + 1}</span><span class="leading-relaxed text-white/85">${t}</span></li>`).join('')}</ol>`;
+    const linkBtn = (l, primary) => `<a href="${l.url}" target="_blank" rel="noopener noreferrer" class="guide-btn inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold ${primary ? 'bg-white text-black hover:bg-white/85' : 'ring-1 ring-white/25 hover:bg-white/10'} transition-colors">${l.label}</a>`;
+    const help = `<div class="mt-6 rounded-xl bg-white/[0.04] p-4 text-sm ${mist}">¿Te atoraste en algún paso? <a href="${canal}" target="_blank" rel="noopener noreferrer" class="font-semibold text-white underline underline-offset-4">Búscanos en nuestro canal de WhatsApp</a>.</div>`;
+
+    const showApps = (dev) => {
+      currentDevice = dev;
+      title.textContent = dev.nombre;
+      back.classList.add('hidden');
+      body.innerHTML = `
+        <p class="leading-relaxed ${mist}">${dev.intro}</p>
+        <p class="mt-5 mb-3 text-sm font-semibold">${dev.apps.length > 1 ? 'Elige la app que vas a usar' : 'App que vas a usar'}</p>
+        <div class="grid gap-2.5">
+          ${dev.apps.map((app, i) => `
+            <button class="app-pick group flex w-full items-center justify-between gap-4 rounded-xl bg-white/[0.04] p-4 text-left ring-1 ring-white/10 hover:bg-white/[0.08] transition-colors" data-i="${i}">
+              <span class="min-w-0">
+                <span class="flex flex-wrap items-center gap-2 font-semibold">${app.name} ${badge(app.badge)}</span>
+                <span class="mt-1 block text-sm ${mist}">${app.desc}</span>
+              </span>
+              <svg viewBox="0 0 24 24" class="h-5 w-5 flex-none ${mist} group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>`).join('')}
+        </div>${help}`;
+      body.querySelectorAll('.app-pick').forEach((b) => {
+        b.onclick = () => showSteps(dev.apps[Number(b.getAttribute('data-i'))]);
+      });
+      body.scrollTop = 0;
+    };
+
+    const zoomImg = (src, alt) => `<a href="${src}" target="_blank" rel="noopener" class="block overflow-hidden rounded-xl ring-1 ring-white/10"><img src="${src}" alt="${alt}" loading="lazy" class="w-full h-auto"></a>`;
+    const storeImgs = (imgs) => imgs && imgs.length ? `<div class="mt-4 grid gap-3 ${imgs.length > 1 ? 'sm:grid-cols-2' : ''}">${imgs.map((i) => zoomImg(i.src, i.alt)).join('')}</div>` : '';
+    const planImgs = (app) => {
+      if (!app.imagenesPlan) return '';
+      const plans = Object.keys(app.imagenesPlan);
+      return `<div class="mt-5">
+        <p class="text-sm font-semibold">Guía con imágenes: elige tu plan</p>
+        <div class="plan-tabs mt-2 inline-flex rounded-full bg-white/[0.06] p-1 ring-1 ring-white/10" role="tablist">
+          ${plans.map((p, i) => `<button role="tab" aria-selected="${i === plans.length - 1}" data-plan="${p}" class="plan-tab rounded-full px-4 py-1.5 text-sm font-semibold transition-colors">${p}</button>`).join('')}
+        </div>
+        <div class="plan-img mt-3"></div>
+      </div>`;
+    };
+    const wirePlanImgs = (app) => {
+      if (!app.imagenesPlan) return;
+      const box = body.querySelector('.plan-img');
+      const tabs = body.querySelectorAll('.plan-tab');
+      const pick = (p) => {
+        tabs.forEach((t) => {
+          const on = t.getAttribute('data-plan') === p;
+          t.setAttribute('aria-selected', String(on));
+          t.className = `plan-tab rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${on ? 'bg-white text-black' : 'text-[#a5acc4] hover:text-white'}`;
+        });
+        box.innerHTML = zoomImg(app.imagenesPlan[p], `Cómo cargar BooxTV ${p} en ${app.name}`);
+      };
+      tabs.forEach((t) => (t.onclick = () => pick(t.getAttribute('data-plan'))));
+      pick('Balance' in app.imagenesPlan ? 'Balance' : Object.keys(app.imagenesPlan)[0]);
+    };
+
+    const showSteps = (app) => {
+      title.textContent = app.name;
+      back.classList.remove('hidden');
+      const links = [app.tienda && linkBtn(app.tienda, true), app.video && linkBtn(app.video, false)].filter(Boolean).join('');
+      body.innerHTML = `
+        <div class="guide-steps">
+          <h4 class="font-bold">1. Instala la app</h4>
+          ${list(app.instalar)}
+          ${links ? `<div class="mt-4 flex flex-wrap gap-2">${links}</div>` : ''}
+          ${storeImgs(app.imagenes)}
+          <h4 class="mt-7 font-bold">2. Escribe tus datos de acceso</h4>
+          <p class="mt-1 text-sm ${mist}">Te los enviamos por WhatsApp al pedir tu prueba gratis o al contratar.</p>
+          ${list(app.datos)}
+          ${planImgs(app)}
+          ${app.licencia ? `<p class="mt-6 rounded-xl border border-[#eab308]/40 bg-[#eab308]/10 p-4 text-sm leading-relaxed text-white/90">${app.licencia}</p>` : ''}
+          ${app.nota ? `<p class="mt-4 text-sm leading-relaxed ${mist}">${app.nota}</p>` : ''}
+        </div>${help}`;
+      wirePlanImgs(app);
+      body.scrollTop = 0;
+    };
+
+    document.querySelectorAll('.device-open').forEach((btn) => {
+      btn.onclick = () => {
+        const dev = guiaInstalacion.dispositivos.find((d) => d.id === btn.getAttribute('data-id'));
+        if (!dev) return;
+        showApps(dev);
+        open();
+      };
+    });
+    back.onclick = () => currentDevice && showApps(currentDevice);
+    close.onclick = shut;
+    modal.onclick = (e) => { if (e.target === modal) shut(); };
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('flex')) shut(); });
+  };
+
+  document.addEventListener('DOMContentLoaded', initGuide);
+  document.addEventListener('astro:page-load', initGuide);
+</script>
+
+<style is:global>
+  .guide-steps a:not(.guide-btn):not(.block) { color: #7aa2ff; text-decoration: underline; text-underline-offset: 3px; }
+</style>
+<style>
+  .guide-panel { animation: sheet-in .28s ease-out; }
+  @keyframes sheet-in { from { transform: translateY(16px); opacity: 0; } to { transform: none; opacity: 1; } }
+</style>

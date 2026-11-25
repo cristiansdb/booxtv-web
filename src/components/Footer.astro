@@ -1,0 +1,36 @@
+---
+// src/components/Footer.astro
+import contenido from '../data/contenido.json';
+const { site } = contenido;
+const year = new Date().getFullYear();
+const trial = site.whatsappLink; // canal de WhatsApp de BooxTV
+const cols = [
+  { title: "Servicio", links: [["Contenido", "#contenido"], ["Planes y precios", "#planes"], ["Qué incluye", "#incluye"]] },
+  { title: "Ayuda", links: [["Instalación por equipo", "#dispositivos"], ["Preguntas frecuentes", "#faq"], ["Canal de WhatsApp", trial]] },
+];
+---
+
+<footer class="border-t border-line bg-ink">
+  <div class="mx-auto max-w-7xl px-5 py-14 md:px-10">
+    <div class="grid grid-cols-2 gap-10 md:grid-cols-[1.6fr_repeat(2,1fr)]">
+      <div class="col-span-2 md:col-span-1">
+        <a href="#inicio" class="inline-block"><img src="/boox.svg" alt="BooxTV" class="h-9 w-auto brightness-0 invert" /></a>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-mist">{site.footerDesc}</p>
+      </div>
+      {cols.map((col) => (
+        <nav aria-label={col.title}>
+          <h3 class="text-sm font-bold">{col.title}</h3>
+          <ul class="mt-4 space-y-3 text-sm text-mist">
+            {col.links.map(([name, href]) => (
+              <li><a href={href} class="hover:text-white transition-colors" {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{name}</a></li>
+            ))}
+          </ul>
+        </nav>
+      ))}
+    </div>
+    <div class="mt-12 flex flex-col gap-3 border-t border-line pt-6 text-xs text-mist/80 md:flex-row md:items-center md:justify-between">
+      <p>&copy; {year} BooxTV. Todos los derechos reservados.</p>
+      <p>Pagos por transferencia o depósito en OXXO. Precios en pesos mexicanos.</p>
+    </div>
+  </div>
+</footer>

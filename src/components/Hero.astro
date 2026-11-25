@@ -1,0 +1,115 @@
+---
+// src/components/Hero.astro
+import contenido from "../data/contenido.json";
+const { hero, site } = contenido;
+
+const trial = site.whatsappLink; // canal de WhatsApp de BooxTV
+
+// Muro de pósters: cinco columnas que se desplazan muy lento, en direcciones alternas.
+const posters = [
+  "/movies/avatar.jpg", "/series/tlou.jpg", "/movies/dune.jpg", "/series/stranger things.jpg",
+  "/movies/john_wick.jpg", "/series/the mandalorian.jpg", "/movies/spiderman.jpg", "/series/thebear.jpg",
+  "/movies/mision_imposible.jpg", "/series/better call saul.jpg", "/movies/f1.jpg", "/movies/Your_Name.jpg",
+  "/movies/creed.jpg", "/series/the last dance.jpg", "/movies/titanic.jpg", "/movies/demon_slayer.jpg",
+  "/movies/back_to_future.jpg", "/series/greys_anatomy.jpg", "/movies/Flow.jpg", "/movies/laland.jpg",
+  "/movies/rocky_balboa.jpg", "/series/our planet.jpg", "/movies/cruella.jpg", "/movies/michael_jackson.jpg",
+  "/movies/cars.jpg", "/series/the eras tour.jpg", "/movies/scream.jpg", "/movies/mulan.jpg",
+  "/movies/hoppers.jpg", "/movies/IT.jpg",
+];
+const columns = Array.from({ length: 6 }, (_, c) => posters.filter((_, i) => i % 6 === c));
+
+const points = ["Sin contrato ni plazos forzosos", "Hasta 3 dispositivos al mismo tiempo", "Prueba gratis antes de pagar"];
+---
+
+<section id="inicio" class="relative isolate min-h-[100svh] overflow-hidden flex items-end md:items-center">
+  <!-- Muro de pósters -->
+  <div class="poster-wall absolute inset-0 -z-20" aria-hidden="true">
+    <div class="poster-grid">
+      {columns.map((col, c) => (
+        <div class={`poster-col ${c % 2 ? 'down' : 'up'}`}>
+          {[...col, ...col].map((src) => (
+            <img src={src} alt="" loading="eager" decoding="async" />
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+  <!-- Velos para lectura -->
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_20%_40%,rgba(59,21,120,0.55),transparent_60%)]" aria-hidden="true"></div>
+  <div class="absolute inset-0 -z-10 bg-gradient-to-r from-ink via-ink/85 to-ink/20" aria-hidden="true"></div>
+  <div class="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-transparent to-ink/70" aria-hidden="true"></div>
+
+  <div class="mx-auto w-full max-w-7xl px-5 md:px-10 pb-16 pt-28 md:py-32">
+    <div class="max-w-2xl">
+      <h1 class="hero-title font-extrabold tracking-[-0.035em] text-white">
+        Películas, series y deportes en vivo. Todo en una sola cuenta.
+      </h1>
+      <p class="mt-6 max-w-xl text-lg md:text-xl leading-relaxed text-white/80">
+        {hero.descripcion}
+      </p>
+
+      <div class="mt-9 flex flex-col sm:flex-row gap-3">
+        <a href={trial} target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 rounded-xl bg-boox px-7 py-4 text-base font-bold text-black hover:bg-yellow-400 transition-colors">
+          Prueba gratis por WhatsApp
+        </a>
+        <a href="#planes"
+          class="inline-flex items-center justify-center rounded-xl border border-white/25 bg-white/5 px-7 py-4 text-base font-semibold text-white hover:bg-white/10 transition-colors backdrop-blur">
+          Ver planes desde $139 al mes
+        </a>
+      </div>
+
+      <ul class="mt-9 flex flex-col sm:flex-row sm:flex-wrap gap-x-7 gap-y-2.5 text-[15px] text-white/70">
+        {points.map(p => (
+          <li class="flex items-center gap-2.5">
+            <svg class="h-4 w-4 flex-none text-boox" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0L3.3 9.7a1 1 0 111.4-1.4l3.8 3.8 6.8-6.8a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
+            {p}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-title {
+    font-size: clamp(2.5rem, 6.2vw, 4.75rem);
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  .poster-wall {
+    mask-image: linear-gradient(to bottom, black 70%, transparent);
+  }
+  .poster-grid {
+    position: absolute;
+    top: -20%;
+    right: -12%;
+    width: 120%;
+    height: 150%;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 14px;
+    transform: rotate(-9deg);
+    opacity: 0.55;
+  }
+  @media (max-width: 767px) {
+    .poster-grid { width: 190%; right: -55%; opacity: 0.4; grid-template-columns: repeat(6, 120px); }
+  }
+  .poster-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    will-change: transform;
+  }
+  .poster-col img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .poster-col.up { animation: drift-up 90s linear infinite; }
+  .poster-col.down { animation: drift-down 90s linear infinite; }
+  @keyframes drift-up { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+  @keyframes drift-down { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+</style>

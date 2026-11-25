@@ -1,0 +1,74 @@
+---
+// src/components/FAQ.astro — preguntas frecuentes
+import contenido from "../data/contenido.json";
+const { faqs } = contenido;
+const iniciales = faqs.slice(0, 6);
+const extras = faqs.slice(6);
+---
+
+<section id="faq" class="scroll-mt-20 py-16 md:py-24">
+  <div class="mx-auto grid max-w-7xl gap-12 px-5 md:px-10 lg:grid-cols-[1fr_1.4fr]">
+    <div>
+      <h2 class="text-3xl md:text-[2.75rem] font-extrabold tracking-[-0.03em] leading-tight">Preguntas frecuentes</h2>
+      <p class="mt-4 max-w-md text-lg leading-relaxed text-mist">Todo lo que necesitas saber antes de empezar. Si te queda alguna duda, búscanos en nuestro canal de WhatsApp.</p>
+      <div class="mt-8 overflow-hidden rounded-2xl ring-1 ring-white/10 bg-night">
+        <video class="aspect-video w-full object-cover" controls preload="metadata" poster="/video_portada.jpg">
+          <source src="/video_faq.mp4" type="video/mp4" />
+          Tu navegador no puede reproducir este video.
+        </video>
+      </div>
+      <p class="mt-3 text-sm text-mist">Mira cómo funciona BooxTV en menos de un minuto.</p>
+    </div>
+
+    <div>
+      <div class="divide-y divide-line border-y border-line">
+        {iniciales.map((faq) => (
+          <details class="faq group">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-left text-lg font-semibold hover:text-boox transition-colors">
+              <span>{faq.pregunta}</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-body pb-6 pr-10 leading-relaxed text-mist" set:html={faq.respuesta} />
+          </details>
+        ))}
+        {extras.map((faq) => (
+          <details class="faq faq-extra group" hidden>
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-left text-lg font-semibold hover:text-boox transition-colors">
+              <span>{faq.pregunta}</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-body pb-6 pr-10 leading-relaxed text-mist" set:html={faq.respuesta} />
+          </details>
+        ))}
+      </div>
+      {extras.length > 0 && (
+        <button id="faq-more" type="button" class="mt-6 rounded-full px-6 py-3 text-sm font-semibold ring-1 ring-white/20 hover:bg-white/[0.08] transition-colors">
+          Ver las {faqs.length} preguntas
+        </button>
+      )}
+    </div>
+  </div>
+</section>
+
+<script>
+  const btn = document.getElementById("faq-more");
+  btn?.addEventListener("click", () => {
+    document.querySelectorAll<HTMLElement>(".faq-extra").forEach((el) => (el.hidden = false));
+    btn.remove();
+  });
+</script>
+
+<style>
+  summary::-webkit-details-marker { display: none; }
+  .faq-icon {
+    position: relative; flex: none; width: 18px; height: 18px;
+  }
+  .faq-icon::before, .faq-icon::after {
+    content: ""; position: absolute; left: 0; top: 50%; width: 18px; height: 2px;
+    background: currentColor; border-radius: 2px; transition: transform .25s ease;
+  }
+  .faq-icon::after { transform: rotate(90deg); }
+  details[open] .faq-icon::after { transform: rotate(0deg); }
+  details[open] summary { color: var(--color-boox); }
+  .faq-body :global(b) { color: #fff; font-weight: 600; }
+</style>

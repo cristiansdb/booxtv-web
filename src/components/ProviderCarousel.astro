@@ -1,0 +1,63 @@
+---
+// src/components/ProviderCarousel.astro — logos de plataformas y ligas (sin librerías externas)
+import contenido from '../data/contenido.json';
+const { providerSection } = contenido;
+
+const items = [
+  { name: "Netflix", logo: "/logos/Netflix_2015_logo.svg" },
+  { name: "Disney+", logo: "/logos/Disney+_logo.svg" },
+  { name: "HBO Max", logo: "/logos/hbo.png" },
+  { name: "Prime Video", logo: "/logos/Prime_Video.png" },
+  { name: "Paramount+", logo: "/logos/Paramount_Plus.svg" },
+  { name: "Crunchyroll", logo: "/logos/Crunchyroll_2024.svg" },
+  { name: "Liga MX", logo: "/logos/liga_mx_logo.svg" },
+  { name: "Champions League", logo: "/logos/champions_league_logo.svg" },
+  { name: "Formula 1", logo: "/logos/F1.svg" },
+  { name: "UFC", logo: "/logos/UFC_Logo.svg" },
+  { name: "NFL", logo: "/logos/nfl.svg" },
+];
+---
+
+<section class="py-16 md:py-20">
+  <div class="mx-auto max-w-7xl px-5 md:px-10">
+    <h2 class="text-2xl md:text-3xl font-extrabold tracking-[-0.03em]">{providerSection.titulo} {providerSection.resaltado.toLowerCase()}</h2>
+    <p class="mt-2 text-mist">{providerSection.descripcion}</p>
+  </div>
+
+  <div class="logo-marquee mt-10" aria-label="Plataformas y ligas">
+    <ul class="logo-track">
+      {[...items, ...items].map((item, i) => (
+        <li class="logo-tile" aria-hidden={i >= items.length ? 'true' : undefined}>
+          <img src={item.logo} alt={i < items.length ? item.name : ''} loading="lazy" />
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .logo-marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+  .logo-track {
+    display: flex;
+    gap: 14px;
+    width: max-content;
+    animation: marquee 55s linear infinite;
+  }
+  .logo-marquee:hover .logo-track { animation-play-state: paused; }
+  .logo-tile {
+    display: grid;
+    place-items: center;
+    width: 150px;
+    height: 84px;
+    padding: 16px 20px;
+    box-sizing: border-box;
+    border-radius: 14px;
+    background: #ffffff;
+  }
+  .logo-tile img { width: 100%; height: 52px; object-fit: contain; }
+  @media (min-width: 768px) { .logo-tile { width: 180px; height: 96px; } .logo-tile img { height: 64px; } }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 7px)); } }
+</style>

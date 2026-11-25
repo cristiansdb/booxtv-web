@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* Paleta BooxTV: se conservan los colores de la marca (azul noche, violeta, azul y amarillo) */
+@theme {
+  --font-sans: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-ink: #000214;      /* fondo base */
+  --color-night: #0a0e27;    /* superficies */
+  --color-deep: #11163a;     /* superficies elevadas */
+  --color-violet: #3b1578;   /* resplandor de marca */
+  --color-signal: #2563eb;   /* azul de marca: enlaces y acentos */
+  --color-boox: #eab308;     /* amarillo Boox: acción principal */
+  --color-mist: #a5acc4;     /* texto secundario */
+  --color-line: rgb(255 255 255 / 0.09);
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-ink);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-boox);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
